@@ -28,3 +28,14 @@ class Location(models.Model):
 
     def delete_location(self):
         self.delete()
+    
+    def update_location(self):
+        self.update_location
+
+    @classmethod
+    def get_location(cls):
+        location = cls.objects.all()
+        return location
+
+class Image(models.Model):
+    
