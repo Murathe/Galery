@@ -3,4 +3,5 @@ import datetime as dt
 
 # Create your models here.
 class Category(models.Model):
+    name = models.CharField(max_length = 20)
     
