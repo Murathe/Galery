@@ -14,4 +14,5 @@ class Category(models.Model):
     def delete_cat(self):
         self.delete()
 
-    
+    def update_cat(self):
+        self.update()
