@@ -7,5 +7,11 @@ class Category(models.Model):
 
     def __str__(self):
         return self.name
+
     def save_cat(self):
         self.save()
+
+    def delete_cat(self):
+        self.delete()
+
+    
