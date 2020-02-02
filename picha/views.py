@@ -4,5 +4,11 @@ import datetime as dt
 from .models import *
 
 # Create your views here.
-def home(request):
-    return HttpResponse('Our pictures goes here!')
+def landing(request):
+    return render(request, 'common/landing.html', {"date": date})
+
+def search_results(request):
+    if 'image' in request.GET and request.GET["image"]:
+        search_term = request.GET.get("image")
+        searched_images = Image.search_by_cat(search_term)
+        message = f"{search_term}"
