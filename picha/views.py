@@ -12,3 +12,8 @@ def search_results(request):
         search_term = request.GET.get("image")
         searched_images = Image.search_by_cat(search_term)
         message = f"{search_term}"
+
+        return render(request, 'common/search.html', {"message": message, "images": searched_images})
+    else:
+        message = "Make sure you've searched a term"
+        return render(request, 'common/search.html', {"message": message})
