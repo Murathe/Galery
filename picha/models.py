@@ -60,3 +60,14 @@ class Image(models.Model):
     @classmethod
     def search_by_cat(cls, search_term):
         picha = cls.objects.filter(category__name__icontains=search_term)
+        return picha
+    
+    @classmethod
+    def det_images(cls):
+        images = cls.objects.all()
+        return images
+
+    @classmethod
+    def get_image_by_id(cls):
+        img_id = cls.objects.get(pk=id)
+        return img_id
