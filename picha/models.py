@@ -16,3 +16,6 @@ class Category(models.Model):
 
     def update_cat(self):
         self.update()
+
+class Location(models.Model):
+    
