@@ -50,4 +50,13 @@ class Image(models.Model):
 
     def save_image(self):
         self.save()
-        
+
+    def delete_image(self):
+        self.delete()
+
+    def update_image(self):
+        self.update()
+
+    @classmethod
+    def search_by_cat(cls, search_term):
+        picha = cls.objects.filter(category__name__icontains=search_term)
