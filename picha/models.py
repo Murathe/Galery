@@ -38,4 +38,9 @@ class Location(models.Model):
         return location
 
 class Image(models.Model):
-    
+    title = models.CharField(max_length = 20)
+    content = models.TextField()
+    location = models.ForeignKey(Location)
+    category = models.ForeignKey(Category)
+    date = models.DateTimeField(auto_now_add=True)
+    cat_image = models.ImageField(upload_to = .images/)
