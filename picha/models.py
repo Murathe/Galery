@@ -43,4 +43,11 @@ class Image(models.Model):
     location = models.ForeignKey(Location)
     category = models.ForeignKey(Category)
     date = models.DateTimeField(auto_now_add=True)
-    cat_image = models.ImageField(upload_to = .images/)
+    cat_image = models.ImageField(upload_to = 'images/')
+
+    def __str__(self):
+        return self.title
+
+    def save_image(self):
+        self.save()
+        
