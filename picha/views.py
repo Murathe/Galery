@@ -5,8 +5,8 @@ from .models import *
 
 # Create your views here.
 def base(request):
-    
-    return render(request, 'common/navbar.html', {"date": date})
+    images=Image.objects.all()
+    return render(request, 'common/navbar.html', {"images": images })
 
 def search_results(request):
     if 'image' in request.GET and request.GET["image"]:
@@ -20,7 +20,7 @@ def search_results(request):
         return render(request, 'common/search.html', {"message": message})
 
 def photo_category(request):
-    date = dt.date.today()
-    picha = Image.objects.all()
+    images = Image.objects.all()
+    date = dt.datetime.today()
 
-    return render(request, 'common/category.html', {"date": date, "picha": picha})
+    return render(request, 'common/category.html', {"date": date, "images": images})

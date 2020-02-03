@@ -43,7 +43,7 @@ class Image(models.Model):
     location = models.ForeignKey(Location, on_delete=models.PROTECT)
     category = models.ForeignKey(Category, on_delete=models.PROTECT)
     date = models.DateTimeField(auto_now_add=True)
-    category_image = models.ImageField(upload_to = 'images/')
+    cat_image = models.ImageField(upload_to = 'images/')
 
     def __str__(self):
         return self.title
