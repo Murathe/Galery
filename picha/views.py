@@ -17,3 +17,9 @@ def search_results(request):
     else:
         message = "Make sure you've searched a term"
         return render(request, 'common/search.html', {"message": message})
+
+def photo_category(request):
+    date = dt.date.todat()
+    picha = IMage.objcets.all
+
+    return render(request, 'common/Category.html', {"date": date, "picha": picha})
