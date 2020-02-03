@@ -19,7 +19,7 @@ def search_results(request):
         return render(request, 'common/search.html', {"message": message})
 
 def photo_category(request):
-    date = dt.date.todat()
+    date = dt.date.today()
     picha = Image.objects.all
 
     return render(request, 'common/category.html', {"date": date, "picha": picha})

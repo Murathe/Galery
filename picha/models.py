@@ -40,8 +40,8 @@ class Location(models.Model):
 class Image(models.Model):
     title = models.CharField(max_length = 20)
     content = models.TextField()
-    location = models.ForeignKey(Location)
-    category = models.ForeignKey(Category)
+    location = models.ForeignKey(Location, on_delete=models.PROTECT)
+    category = models.ForeignKey(Category, on_delete=models.PROTECT)
     date = models.DateTimeField(auto_now_add=True)
     cat_image = models.ImageField(upload_to = 'images/')
 
