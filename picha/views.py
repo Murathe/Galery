@@ -20,6 +20,6 @@ def search_results(request):
 
 def photo_category(request):
     date = dt.date.todat()
-    picha = IMage.objcets.all
+    picha = Image.objects.all
 
-    return render(request, 'common/Category.html', {"date": date, "picha": picha})
+    return render(request, 'common/category.html', {"date": date, "picha": picha})
