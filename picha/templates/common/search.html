@@ -1,0 +1,20 @@
+{% extends 'common/base.html' %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            {% if images %}
+                <h3>Found {{images|length}} of searched item {{message}}</h3>
+                    {% for image in images %}
+                    <div class="col-md-4">
+                        <h3>{{image.category}}</h3>
+                        <img src="{{image.cat_image.url}}" class="img-responsive img-thumbnail" alt="image">
+                        <h4>{{image.date}}</h4>
+                        <h4>{{image.content}}</h4>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <h3>Found nil results for the searched item {{message}}</h3>
+            {% endif %}
+        </div>
+    </div>
+{% endblock content %}

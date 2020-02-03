@@ -46,5 +46,4 @@ Copy a link to the photo to share with your friends.
 3. Postgres
 
 
-## LICENCE
-### MIT ©2019 Faith Gakori
+## For infor on collaboration, follow along the normal procedure and let's get collaborating.

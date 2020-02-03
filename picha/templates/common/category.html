@@ -1,40 +1,40 @@
 {% extends 'common/base.html' %}
+{{block.super}}
 {% block content %}
-    {{block.super}}
-    <div class="container">
-        {% for picha_item in picha %}
-            <div class="col-md-4">
-                <a href="" data-toggle="modal" data-target="#{{picha_item.id}}"></a>
-                <img src="{{picha_item.category_image.url}}" class="img-responsive img-thumbnail" alt="image">
-                <h3 class="bold">{{picha_item.category}}</h3>
-            </div>
-            
-            <div class="modal fade mode" id="{{picha_item.id}}" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
-                <div class="modal-dialog modal-lg">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                            <h3 class="modal-title bold " id="myModalLabel">{{picha_item.title}}</h3>
+    
+<div class="container">
+            {% for image in images %}
+                <div class="col-md-4">
+                    <a data-toggle="modal" data-target="#{{picha_item.id}}"></a>
+                    <img src="{{image.category_image.url}}" class="img-responsive img-thumbnail" alt="image">
+                    <h4>{{image.date}}</h4>
+                    <h4>{{image.content}}</h4>
+                </div>
+                <!--modal commented out-->
+                <div class="modal fade mode" id="{{image_item.id}}" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h3 class="modal-title bold " id="myModalLabel">{{picha_item.title}}</h3>
 
-                        </div>
-                        <div class="modal-body">
-                            <div class="container">
-                                <img src="{{picha_item.category_image.url}}" class="img-responsive img-thumbnail" alt="Image">
                             </div>
-                            <h4>{{picha_item.location}}</h4>
-                            <p>{{picha_item.description}}</p>
-                            <p>{{picha_item.posted_date}}</p>
-                        </div>
-                        <div class="modal-footer">
-                            <p>Click the link to copy to clipboard.</p>
-                            <input type="text" id="" value="https://murathegalery.herokuapp.com{{picha_item.category_image.url}}">
-                            
-                            
+                            <div class="modal-body">
+                                <div class="container">
+                                    <img src="{{picha_item.category_image.url}}" class="img-responsive img-thumbnail" alt="Image">
+                                </div>
+                                <h4>{{picha_item.location}}</h4>
+                                <p>{{picha_item.description}}</p>
+                                <p>{{picha_item.posted_date}}</p>
+                            </div>
+                            <div class="modal-footer">
+                                <p>Copy to clipboard.</p>
+                                <input type="text" value="https://murathegalery.herokuapp.com{{picha_item.category_image.url}}">
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            {% endfor %}
+        </div>
 
-        {% endfor %}
-    </div>
 {% endblock content %}

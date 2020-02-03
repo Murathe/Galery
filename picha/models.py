@@ -43,7 +43,7 @@ class Image(models.Model):
     location = models.ForeignKey(Location, on_delete=models.PROTECT)
     category = models.ForeignKey(Category, on_delete=models.PROTECT)
     date = models.DateTimeField(auto_now_add=True)
-    cat_image = models.ImageField(upload_to = 'images/')
+    category_image = models.ImageField(upload_to = 'images/')
 
     def __str__(self):
         return self.title
@@ -58,12 +58,12 @@ class Image(models.Model):
         self.update()
 
     @classmethod
-    def search_by_cat(cls, search_term):
+    def search_by_category(cls, search_term):
         picha = cls.objects.filter(category__name__icontains=search_term)
         return picha
     
     @classmethod
-    def det_images(cls):
+    def get_images(cls):
         images = cls.objects.all()
         return images
 
