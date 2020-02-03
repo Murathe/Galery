@@ -6,10 +6,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% if title %}
+        <title>Gallery {{title}}</title>
+    {% else %}
+        <title>My Gallery</title>
+    {% endif %}
+    {% block styles %}
+        {% bootstrap_css %}
+        <link rel="stylesheet" href="{% static 'css/styles.css'%}">
+    {% endblock styles %}
 </head>
 <body>
-    <div class="container">
-
-    </div>
+    {% include "navbar.html" %}
+    {% block content %}
+        <div class="container">
+            <h2>{{date|date: "l d-F Y"}}</h2>
+            <h2>Karibu kwa my Gallery</h2>
+        </div>
+    {% endblock content %}
+    {% block footer %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        {% bootstrap_javascript %}
+        <script src="{% static 'js/script.js' %}"></script>
+    {% endblock footer %}
 </body>
 </html>
