@@ -12,7 +12,10 @@
             </div>
             <div class="col-md-3 navbar-right">
             <form class="navbar-form" role="search" action="{% url 'search_results' %}">
-                <input type="text" class="form-control" placeholder="Enter a category to search">
+                <input type="text" class="form-control" placeholder="Enter a category to search" name="image">
+                <div class="input-group-btn">
+                    <button class="btn btn-info" type="submit"><i class="glyphicon glyphicon-search"</button>
+                </div>
             </form>
             </div>
         </div>
