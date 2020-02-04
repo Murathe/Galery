@@ -13,12 +13,34 @@
                 {% for image in images %}
                     <div class="col-md-4">
                         <h3>{{image.category}}</h3>
-                        <img src="{{image.cat_image.url}}" class="img-responsive img-thumbnail" alt="image">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#largeModal" data-whatever="">
+                            <img src="{{image.cat_image.url}}" class="img-responsive img-thumbnail" alt="photo" data-toggle="modal" data-target="#exampleModalCenter">
+                        </button>
                         <h4>{{image.date}}</h4>
                         <h4>{{image.content}}</h4>
                     </div>
                 {% endfor %}
             {% endif %}
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+            {% for image in images %}
+                <div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg" style="width: 1000px; margin: auto;">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title" id="myModalLabel" style="margin: 0 auto;">{{image.title}}</h4>
+                        </div>
+                        <div class="modal-body">
+                            <img src="{{image.cat_image.url}}" class="img-responsive img-thumbnail" alt="photo">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-success mr-auto">{{image.location}}</button>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
         </div>
     </div>
 {% endblock content %}

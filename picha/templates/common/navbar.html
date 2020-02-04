@@ -12,16 +12,20 @@
 <body>
     <div class="jumbotron">
         <div class="container">
-            <div class="navbar-header">
-                <h1><a href={% url 'category' %}>HOME</a></h1>
+            <div class="row">
+                <div class="navbar-header">
+                    <h1><a href={% url 'category' %}>Picha Zangu</a></h1>
+                </div>
             </div>
-            <div class="col-md-6 navbar-right">
-                <form class="navbar-form" role="search" action="{% url 'search_results' %}">
-                    <input type="text" class="form-control" placeholder="Enter a category to search" name="image">
-                    <div class="input-group-btn">
-                        <button class="btn btn-info" type="submit">Search</button>
-                    </div>
-                </form>
+            <div class="row">
+                <div class="col-md-6 navbar-right">
+                    <form class="navbar-form" role="search" action="{% url 'search_results' %}">
+                        <input type="text" class="form-control" placeholder="Enter a category to search" name="image">
+                        <div class="input-group-btn">
+                            <button class="btn btn-success col-md-12" type="submit">Search</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     

@@ -1,39 +1,41 @@
 {% extends 'common/base.html' %}
-{{block.super}}
 {% block content %}
-    
-<div class="container">
-            {% for image in images %}
-                <div class="col-md-4">
-                    <h4>{{image.content}}</h4>
-                    <a data-toggle="modal" data-target="#{{image.id}}"></a>
-                    <img src="{{image.cat_image.url}}" class="img-responsive img-thumbnail" alt="photo">
-                    <p>{{image.date}}</p>
-                </div>
-                <!--modal commented out-->
-                <div class="modal fade mode" id="{{image_item.id}}" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
-                    <div class="modal-dialog modal-lg">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                <h3 class="modal-title bold " id="myModalLabel">{{picha_item.title}}</h3>
-                            </div>
-                            <div class="modal-body">
-                                <div class="container">
-                                    <img src="{{picha_item.category_image.url}}" class="img-responsive img-thumbnail" alt="Image">
-                                </div>
-                                <h4>{{picha_item.location}}</h4>
-                                <p>{{picha_item.description}}</p>
-                                <p>{{picha_item.posted_date}}</p>
-                            </div>
-                            <div class="modal-footer">
-                                <p>Copy to clipboard.</p>
-                                <input type="text" value="https://murathegalery.herokuapp.com{{picha_item.category_image.url}}">
-                            </div>
-                        </div>
+{{block.super}}
+    <div class="container">
+        {% for image in images %}
+            <div class="col-md-4">
+                <a></a>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#largeModal" data-whatever="">
+                    <img src="{{image.cat_image.url}}" class="img-responsive img-thumbnail" alt="photo" data-toggle="modal" data-target="#exampleModalCenter">
+                </button>
+                <h3>{{image.date}}</h3>
+            </div>
+        {% endfor %}
+        <!-- Modal -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+        {% for image in images %}
+            <div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg" style="width: 1000px; margin: auto;">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel" style="margin: 0 auto;">{{image.title}}</h4>
+                    </div>
+                    <div class="modal-body">
+                        <img src="{{image.cat_image.url}}" class="img-responsive img-thumbnail" alt="photo">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-success mr-auto">{{image.location}}</button>
+                    </div>
                     </div>
                 </div>
-            {% endfor %}
-        </div>
+            </div>
+        {% endfor %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js" integrity="sha256-SiHXR50l06UwJvHhFY4e5vzwq75vEHH+8fFNpkXePr0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js" integrity="sha256-EPrkNjGEmCWyazb3A/Epj+W7Qm2pB9vnfXw+X6LImPM=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha256-gL1ibrbVcRIHKlCO5OXOPC/lZz/gpdApgQAzskqqXp8=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 
 {% endblock content %}

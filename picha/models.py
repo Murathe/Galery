@@ -44,6 +44,7 @@ class Image(models.Model):
     category = models.ForeignKey(Category, on_delete=models.PROTECT)
     date = models.DateTimeField(auto_now_add=True)
     cat_image = models.ImageField(upload_to = 'images/')
+    
 
     def __str__(self):
         return self.title
